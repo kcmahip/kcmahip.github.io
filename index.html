@@ -2,50 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AeroVasQ - Silent Threat, Simple Fix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 00000, maximum-scale=1.0, user-scalable=no">
+    <title>AeroVasQ</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            text-align: center;
-            background-color: #ffffff;
-            color: #202124;
+        /* Base Reset */
+        body, html {
             margin: 0;
-            padding: 8vh 20px;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            text-align: center;
+            overflow-x: hidden;
+            width: 100%;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+
+/* NEW: Gradient Around Edges (Vignette Overlay)
+           This casts a soft gradient shadow inward from the edges of the screen.
+        */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Currently set to a soft version of your clinical blue. rgba(26, 115, 232, 0.25)
+               Change to rgba(0, 0, 0, 0.4) for a dark shadow, 
+               or rgba(255, 255, 255, 0.8) for a white fade. */
+            box-shadow: inset 0 0 900px rgba(13, 71, 161, 0.85); 
+            pointer-events: none; /* Ensures the gradient doesn't block clicks/touches */
+            z-index: 9999;
         }
+
         h1 {
             font-size: 3.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-bottom: 40px;
+            margin: 0;
             color: #1a73e8; /* A clean, clinical blue */
+            line-height: 1.2;
         }
+
+        /* Forces the image to be full width and perfectly centered */
         .hero-image {
-            max-width: 1100vw%;
-            height: 75vh;
-            object-fit: cover;
+            width: 100vw; 
+            height: 100vh;
+            object-fit: center;
+            object-position: center; 
             display: block;
-            margin: 0 auto;
         }
         
         /* Adjustments for mobile screens */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 4vh 15px 2vh 15px;
+            }
             h1 {
                 font-size: 2.2rem;
+                padding: 0 10px;
+            }
+            .hero-image {
+                height: 50svh; /* svh prevents the image from hiding under the mobile browser's address bar */
+		
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-               
-        <img src="Landing-AeroVasQ.svg" alt="alt" class="hero-image">
-    </div>
 
+    <img src="logo-aero-v1-a4.svg" alt="AeroVasQ Solution" class="hero-image">
 </body>
 </html>
